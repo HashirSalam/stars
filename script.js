@@ -3,8 +3,25 @@
 
   
     ctx = document.getElementById('canvas').getContext('2d');
-    image = document.getElementById('source');
-    console.log(image);
+
+    //FOR DRAWING STARS
+    // image = document.getElementById('source');
+    // image2 = document.getElementById('source2');
+    // image3 = document.getElementById('source3');
+    // Chart.pluginService.register({
+    //     afterUpdate: function(chart) {
+    //         for(i=0;i<myData.datasets.length;i++)
+    //         {
+    //         chart.config.data.datasets[i]._meta[0].data[0]._model.pointStyle = image;
+    //         }
+          
+    //     }
+    // });
+
+
+
+
+
     labels = '';
     datax = 0;
     datay = 0;
@@ -154,6 +171,9 @@
         if (typeof myLiveChart == "undefined") {
         
             myLiveChart = new Chart(ctx, options); //Draws the graph
+            
+            //void ctx.drawImage(image, dx, dy, dWidth, dHeight);
+           
 
            
          }
@@ -489,6 +509,28 @@
         {
             myData.datasets[i].data[0].x = originalData.datasets[i].datatime;
         }
+
+        updateChart(myLiveChart);
     
     });
+
+    $('#ysett').on("click", function(e) {
+        e.preventDefault();
+
+        if (document.forms['frm'].upload.value === "") {
+            alert ("No Data Loaded. Import a CSV file first.");
+            return false;
+         }
+        
+        for(i=0;i<myData.datasets.length;i++)
+        {
+            myData.datasets[i].data[0].y = originalData.datasets[i].datatime;
+        }
+
+        updateChart(myLiveChart);
+    });
+
+
+
+
 })(window, document)
