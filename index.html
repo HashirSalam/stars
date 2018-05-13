@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Data</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  </head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" style="margin: 20px;background-color:blanchedalmond">
+            <div class="col-sm-12">
+                <!-- the html element we listen to -->
+                <form class="form-inline" name="frm">
+                    <div class="form-group"> <button style="margin: 10px;" type="submit" id="submit" class="btn btn-primary"> <i class="fas fa-upload"></i>  <b> Import CSV </b></button> <input name="upload" type="file" id="files" class="form-control" accept=".csv" required /> </div>
+                    <div class="form-group"> <button type="submit" id="exportCSV" class="btn btn-primary btn-success" style="margin: 10px;"><i class="far fa-file-excel"></i> Export CSV </button> </div>
+                    <div class="form-group"> <button type="submit" id="exportImg" class="btn btn-primary" style="margin: 10px;"> <i class="far fa-image"></i> Export GIF</button> </div>
+          
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-6" style="background-color:rgb(198, 225, 250)">
+                <h2 style="text-align: center;">Data</h2>
+                <div id="table" class="table-responsive"></div>
+            </div>
+            <div class="col-sm-6" style="background-color:ivory">
+                <h2 style="text-align: center;">Visualization</h2>
+                <div id="chart" style="position: relative;margin:5px"> <canvas id="canvas"></canvas>
+
+                  <div style="display:none;">
+                      <img id="source" src="full-star.png">
+                    </div>
+
+
+                    <div class="myMenu" style="margin-top: 10px">
+                        <div class="btn-group"> <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          X-axis
+        </button>
+                            <div class="dropdown-menu"> <a class="dropdown-item" href="#" id="xsetx">x</a> <a class="dropdown-item" href="#" id="xsety">y</a> <a class="dropdown-item" href="#" id="xsetv">value </a> <a class="dropdown-item" href="#" id="xsett">time </a> </div>
+                        </div>
+                        <div class="btn-group"> <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Y-axis
+          </button>
+                            <div class="dropdown-menu"> <a class="dropdown-item" href="#" id="ysetx">x</a> <a class="dropdown-item" href="#" id="ysety">y</a> <a class="dropdown-item" href="#" id="ysetv">value</a> <a class="dropdown-item" href="#" id="ysett">time </a> </div>
+                        </div>
+                        <div class="btn-group"> <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Size
+            </button>
+                            <div class="dropdown-menu"> <a class="dropdown-item" href="#" id="vsetx">x</a> <a class="dropdown-item" href="#" id="vsety">y</a> <a class="dropdown-item" href="#" id="vsetv">value</a> </div>
+                        </div>
+                        <div class="btn-group"> <button type="button" id="changeColor" class="btn btn-danger" aria-haspopup="true" aria-expanded="false">
+                Color
+              </button> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.4.0/papaparse.min.js"></script>
+<script src="script.js"></script>
+
+</html>
